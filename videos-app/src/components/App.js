@@ -1,7 +1,10 @@
 import React from 'react';
 
+import '../assets/styles/global.css';
+import Routes from '../routes';
+
 const App = () => {
-	return <div>Video App</div>;
+	return <Routes />;
 };
 
 export default App;

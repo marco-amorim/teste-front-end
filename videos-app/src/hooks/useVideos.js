@@ -36,7 +36,7 @@ const useVideos = (defaultSearchTerm) => {
 		});
 	};
 
-	return [videos, search];
+	return [videos, search, nextPageToken];
 };
 
 export default useVideos;

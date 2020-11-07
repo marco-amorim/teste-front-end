@@ -11,11 +11,19 @@
 	#video-results ul {
 		justify-content: space-between;
 	}
+
+	#video-results {
+		margin-top: -200px;
+	}
 }
 
 /* Mobile */
 @media (max-width: 480px) {
 	#video-results ul {
 		justify-content: center;
+	}
+
+	#video-results {
+		margin-top: -150px;
 	}
 }

@@ -5,8 +5,10 @@ import VideoResults from '../components/VideoResults';
 import Welcome from '../components/Welcome';
 import useVideos from '../hooks/useVideos';
 
+import '../assets/styles/landing.css';
+
 const Landing = () => {
-	const [videos, search] = useVideos('');
+	const [videos, search, nextPageToken] = useVideos('');
 	const [searchMade, setSearchMade] = useState(false);
 
 	useEffect(() => {
@@ -30,7 +32,7 @@ const Landing = () => {
 	};
 
 	return (
-		<div className="container mt-5">
+		<div className="container">
 			<SearchBar onFormSubmit={makeSearch} />
 			{renderSearchResult()}
 		</div>

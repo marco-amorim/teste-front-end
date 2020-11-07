@@ -34,11 +34,19 @@ input:active {
 	#search-bar input {
 		width: 295px;
 	}
+
+	#search-bar {
+		margin-top: 400px;
+	}
 }
 
 /* Mobile */
 @media (max-width: 480px) {
 	#search-bar input {
 		width: 225px;
+	}
+
+	#search-bar {
+		margin-top: 250px;
 	}
 }

@@ -20,20 +20,32 @@ const SearchBar = ({ onFormSubmit }) => {
 		document
 			.querySelector('#search-bar button')
 			.setAttribute('disabled', 'true');
-		document
-			.querySelector('#search-bar button')
-			.setAttribute('title', 'Por favor, digite algo no campo de busca');
 	};
 
 	const enableSearchButton = () => {
 		document.querySelector('#search-bar button').removeAttribute('disabled');
-		document.querySelector('#search-bar button').removeAttribute('title');
 	};
 
 	const onSubmit = (event) => {
 		event.preventDefault();
 
 		onFormSubmit(term);
+	};
+
+	const welcomeAnimation = () => {
+		let welcomeElement = document.querySelector('#welcome');
+		let searchbarElement = document.querySelector('#search-bar');
+
+		if (welcomeElement) {
+			setTimeout(() => {
+				welcomeElement.classList.add('fade-in');
+				welcomeElement.classList.remove('d-none');
+			}, 300);
+
+			if (!searchbarElement.classList.contains('slide-top')) {
+				searchbarElement.classList.add('slide-top');
+			}
+		}
 	};
 
 	return (
@@ -44,6 +56,7 @@ const SearchBar = ({ onFormSubmit }) => {
 					value={term}
 					onChange={(event) => setTerm(event.target.value)}
 					placeholder="Pesquisar"
+					onFocus={welcomeAnimation}
 				/>
 				<button type="submit">
 					<FontAwesomeIcon icon={faSearch} color="grey" />

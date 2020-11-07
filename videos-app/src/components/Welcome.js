@@ -5,7 +5,7 @@ import '../assets/styles/welcome.css';
 
 const Welcome = () => {
 	return (
-		<div id="welcome">
+		<div id="welcome" className="d-none">
 			<h5 className="text-center mt-5">Seja bem-vindo(a)!</h5>
 			<p className="text-center">Faça sua busca 🔍</p>
 			<div className="d-flex justify-content-center">

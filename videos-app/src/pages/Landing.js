@@ -14,8 +14,8 @@ const Landing = () => {
 		console.log(searchMade);
 	}, [videos, searchMade]);
 
-	const makeSearch = (term) => {
-		search(term);
+	const makeSearch = async (term) => {
+		await search(term);
 		setSearchMade(true);
 	};
 

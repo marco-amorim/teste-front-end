@@ -3,6 +3,10 @@
 	height: 575px;
 }
 
+.video-card img {
+	max-height: 200px;
+}
+
 .video-card a {
 	bottom: 30px;
 }

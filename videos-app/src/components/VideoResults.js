@@ -6,7 +6,7 @@ import VideoCard from './VideoCard';
 const VideoResults = ({ videos }) => {
 	const renderVideoResults = videos.map((video) => {
 		return (
-			<li>
+			<li key={video.id.videoId}>
 				<VideoCard
 					title={video.snippet.title}
 					channel={video.snippet.channelTitle}

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
@@ -7,6 +7,28 @@ import '../assets/styles/searchbar.css';
 
 const SearchBar = ({ onFormSubmit }) => {
 	const [term, setTerm] = useState('');
+
+	useEffect(() => {
+		if (!term) {
+			disableSearchButton();
+		} else {
+			enableSearchButton();
+		}
+	}, [term]);
+
+	const disableSearchButton = () => {
+		document
+			.querySelector('#search-bar button')
+			.setAttribute('disabled', 'true');
+		document
+			.querySelector('#search-bar button')
+			.setAttribute('title', 'Por favor, digite algo no campo de busca');
+	};
+
+	const enableSearchButton = () => {
+		document.querySelector('#search-bar button').removeAttribute('disabled');
+		document.querySelector('#search-bar button').removeAttribute('title');
+	};
 
 	const onSubmit = (event) => {
 		event.preventDefault();

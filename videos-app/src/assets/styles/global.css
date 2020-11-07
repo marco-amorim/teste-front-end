@@ -6,3 +6,13 @@ body {
 	background-color: var(--primary-background);
 	font-family: 'Roboto';
 }
+
+button:disabled {
+	background-color: #efefef;
+	opacity: 0.5;
+}
+
+button:disabled:hover {
+	background-color: #efefef !important;
+	opacity: 0.5;
+}

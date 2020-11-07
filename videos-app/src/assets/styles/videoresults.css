@@ -1,3 +1,21 @@
 #video-results {
-	margin-top: 200px;
+	margin: 200px 0px;
+}
+
+#video-results li {
+	padding: 20px;
+}
+
+/* Desktop */
+@media (min-width: 480px) {
+	#video-results ul {
+		justify-content: space-between;
+	}
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+	#video-results ul {
+		justify-content: center;
+	}
 }

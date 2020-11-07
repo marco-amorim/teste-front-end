@@ -16,8 +16,10 @@
 	padding: 4px 12px;
 }
 
-#search-bar :focus,
-:active {
+#search-bar input:focus,
+input:active,
+button:focus,
+input:active {
 	outline: none;
 	border: none;
 }

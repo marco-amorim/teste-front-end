@@ -14,21 +14,14 @@ const Landing = () => {
 		console.log(searchMade);
 	}, [videos, searchMade]);
 
-	const makeSearch = () => {
-		search();
+	const makeSearch = (term) => {
+		search(term);
 		setSearchMade(true);
 	};
 
 	const renderSearchResult = () => {
 		if (videos.length > 0) {
-			return (
-				<VideoResults
-					videos={[
-						{ snippet: { title: 'oi' } },
-						{ snippet: { title: 'tchau' } },
-					]}
-				/>
-			);
+			return <VideoResults videos={videos} />;
 		} else if (videos.length === 0 && searchMade) {
 			return <VideoNotFound />;
 		} else {

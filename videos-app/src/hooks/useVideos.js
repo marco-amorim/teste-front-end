@@ -11,6 +11,7 @@ const useVideos = (defaultSearchTerm) => {
 	}, [defaultSearchTerm]);
 
 	const search = async (term) => {
+		console.log(term);
 		const response = await youtube.get('/search', {
 			params: {
 				q: term,

@@ -12,7 +12,7 @@ const VideoCard = (props) => {
 					dangerouslySetInnerHTML={{ __html: props.title }}
 				/>
 				<p
-					className="card-text"
+					className="card-text font-weight-bold"
 					dangerouslySetInnerHTML={{ __html: props.channel }}
 				/>
 				<p

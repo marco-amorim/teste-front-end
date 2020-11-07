@@ -1,37 +1,45 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 const Pagination = (props) => {
-	const nextPage = () => {
+	useEffect(() => {
+		if (props.prevPageToken) {
+			document.querySelector('#previousPageButton').removeAttribute('disabled');
+		} else {
+			document
+				.querySelector('#previousPageButton')
+				.setAttribute('disabled', 'true');
+		}
+
 		if (props.nextPageToken) {
 			document.querySelector('#nextPageButton').removeAttribute('disabled');
+		} else {
+			document
+				.querySelector('#nextPageButton')
+				.setAttribute('disabled', 'true');
+		}
+	}, [props.nextPageToken, props.prevPageToken]);
+
+	const nextPage = async () => {
+		if (props.nextPageToken) {
 			const customParams = {
 				params: {
 					q: props.searchTerm,
 					pageToken: props.nextPageToken,
 				},
 			};
-			props.search(props.defaultSearchTerm, customParams);
-		} else {
-			document
-				.querySelector('#nextPageButton')
-				.setAttribute('disabled', 'true');
+			await props.search(props.defaultSearchTerm, customParams);
 		}
 	};
 
-	const previousPage = () => {
+	const previousPage = async () => {
 		if (props.prevPageToken) {
-			document.querySelector('#previousPageButton').removeAttribute('disabled');
 			const customParams = {
 				params: {
 					q: props.searchTerm,
 					pageToken: props.prevPageToken,
 				},
 			};
-			props.search(props.defaultSearchTerm, customParams);
-		} else {
-			document
-				.querySelector('#previousPageButton')
-				.setAttribute('disabled', 'true');
+			await props.search(props.defaultSearchTerm, customParams);
 		}
 	};
 

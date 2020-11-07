@@ -6,24 +6,42 @@ import Welcome from '../components/Welcome';
 import useVideos from '../hooks/useVideos';
 
 import '../assets/styles/landing.css';
+import Pagination from '../components/Pagination';
 
 const Landing = () => {
-	const [videos, search, nextPageToken] = useVideos('');
+	const [search, nextPageToken, prevPageToken, videos] = useVideos('');
 	const [searchMade, setSearchMade] = useState(false);
+	const [searchTerm, setSearchTerm] = useState('');
 
 	useEffect(() => {
-		console.log(videos);
-		console.log(searchMade);
-	}, [videos, searchMade]);
+		renderSearchResult();
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [searchTerm]);
 
-	const makeSearch = async (term) => {
-		await search(term);
+	const makeSearch = async (term, customParams) => {
+		customParams = {
+			params: {
+				q: term,
+			},
+		};
+		await search(term, customParams);
 		setSearchMade(true);
+		setSearchTerm(term);
 	};
 
 	const renderSearchResult = () => {
 		if (videos.length > 0) {
-			return <VideoResults videos={videos} />;
+			return (
+				<>
+					<VideoResults videos={videos} />
+					<Pagination
+						nextPageToken={nextPageToken}
+						prevPageToken={prevPageToken}
+						search={search}
+						searchTerm={searchTerm}
+					/>
+				</>
+			);
 		} else if (videos.length === 0 && searchMade) {
 			return <VideoNotFound />;
 		} else {

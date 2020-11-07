@@ -4,6 +4,7 @@ import youtube from '../apis/youtube';
 const useVideos = (defaultSearchTerm) => {
 	const [videos, setVideos] = useState([]);
 	const [nextPageToken, setNextPageToken] = useState('');
+	const [prevPageToken, setPrevPageToken] = useState('');
 
 	useEffect(() => {
 		if (defaultSearchTerm) {
@@ -12,31 +13,28 @@ const useVideos = (defaultSearchTerm) => {
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [defaultSearchTerm]);
 
-	const search = async (term) => {
+	const search = async (term, customParams) => {
 		let response;
 		console.log(term);
-		if (nextPageToken === '') {
-			response = await youtube.get('/search', {
-				params: {
-					q: term,
-				},
-			});
+
+		response = await youtube.get('/search', customParams);
+
+		if (response.data.nextPageToken) {
+			setNextPageToken(response.data.nextPageToken);
 		} else {
-			response = await youtube.get('/search', {
-				params: {
-					q: term,
-					pageToken: nextPageToken,
-				},
-			});
+			setNextPageToken('');
 		}
 
-		setNextPageToken(response.data.nextPageToken);
-		setVideos(() => {
-			return [...videos, ...response.data.items];
-		});
+		if (response.data.prevPageToken) {
+			setPrevPageToken(response.data.prevPageToken);
+		} else {
+			setPrevPageToken('');
+		}
+
+		setVideos(response.data.items);
 	};
 
-	return [videos, search, nextPageToken];
+	return [search, nextPageToken, prevPageToken, videos];
 };
 
 export default useVideos;

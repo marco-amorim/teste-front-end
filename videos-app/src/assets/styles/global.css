@@ -1,7 +1,8 @@
 :root {
-	--primary-background: rgb(24, 26, 31);
+	--primary-background: #e4e4e8;
 }
 
 body {
 	background-color: var(--primary-background);
+	font-family: 'Roboto';
 }

@@ -14,10 +14,9 @@ const useVideos = (defaultSearchTerm) => {
 	}, [defaultSearchTerm]);
 
 	const search = async (term, customParams) => {
-		let response;
 		console.log(term);
 
-		response = await youtube.get('/search', customParams);
+		const response = await youtube.get('/search', customParams);
 
 		if (response.data.nextPageToken) {
 			setNextPageToken(response.data.nextPageToken);

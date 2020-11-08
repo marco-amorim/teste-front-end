@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import '../assets/styles/videocard.css';
 
@@ -19,9 +20,15 @@ const VideoCard = (props) => {
 					className="card-text"
 					dangerouslySetInnerHTML={{ __html: props.description }}
 				/>
-				<a href="/" className="btn btn-primary position-absolute">
+				<Link
+					to={{
+						pathname: `/video/${props.videoId}`,
+						state: { videoId: props.videoId },
+					}}
+					className="btn btn-primary position-absolute"
+				>
 					DETALHES DO VÍDEO
-				</a>
+				</Link>
 			</div>
 		</div>
 	);

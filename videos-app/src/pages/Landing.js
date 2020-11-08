@@ -22,6 +22,7 @@ const Landing = () => {
 		customParams = {
 			params: {
 				q: term,
+				maxResults: 6,
 			},
 		};
 		await search(term, customParams);

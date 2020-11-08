@@ -25,6 +25,7 @@ const Pagination = (props) => {
 				params: {
 					q: props.searchTerm,
 					pageToken: props.nextPageToken,
+					maxResults: 6,
 				},
 			};
 			await props.search(props.defaultSearchTerm, customParams);
@@ -37,6 +38,7 @@ const Pagination = (props) => {
 				params: {
 					q: props.searchTerm,
 					pageToken: props.prevPageToken,
+					maxResults: 6,
 				},
 			};
 			await props.search(props.defaultSearchTerm, customParams);

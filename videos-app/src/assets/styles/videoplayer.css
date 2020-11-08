@@ -1,0 +1,59 @@
+#video-player {
+	height: auto;
+	width: 100%;
+}
+
+#video-player .title-likes {
+	display: flex;
+	flex-direction: row;
+	margin: 20px 0px;
+}
+
+#video-player a {
+	position: absolute;
+	top: 0px;
+}
+
+#video-player .likes-container svg {
+	margin-right: 10px;
+}
+
+#video-player .likes-container svg:not(:first-child) {
+	margin-left: 10px;
+}
+
+#video-player iframe {
+	height: 300px;
+}
+
+#video-player .title-likes {
+	display: flex;
+	flex-direction: row;
+	margin: 20px 0px;
+}
+
+#video-player .views {
+	margin-left: 10px;
+}
+
+/* Desktop */
+@media (min-width: 480px) {
+	#video-player .title-likes {
+		flex-direction: row;
+	}
+
+	#video-player .likes-container {
+		margin-left: auto;
+	}
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+	#video-player .title-likes {
+		flex-direction: column;
+	}
+
+	#video-player .likes-container {
+		margin-left: 0px;
+	}
+}

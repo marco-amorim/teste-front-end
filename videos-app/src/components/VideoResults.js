@@ -4,10 +4,11 @@ import '../assets/styles/videoresults.css';
 import VideoCard from './VideoCard';
 
 const VideoResults = ({ videos }) => {
-	const renderVideoResults = videos.map((video) => {
+	const renderVideoResults = videos.map((video, index) => {
 		return (
-			<li key={video.id.videoId}>
+			<li key={index}>
 				<VideoCard
+					key={video.id.videoId}
 					title={video.snippet.title}
 					channel={video.snippet.channelTitle}
 					description={video.snippet.description}

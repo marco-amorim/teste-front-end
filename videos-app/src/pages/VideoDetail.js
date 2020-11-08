@@ -11,7 +11,7 @@ const VideoDetail = () => {
 	return (
 		<div id="video-detail" className="container">
 			<Link to="/">
-				<FontAwesomeIcon icon={faArrowLeft} color="grey" />
+				<FontAwesomeIcon icon={faArrowLeft} color="grey" size="lg" />
 			</Link>
 			<VideoPlayer />
 		</div>

@@ -25,7 +25,7 @@ const VideoCard = (props) => {
 						pathname: `/video/${props.videoId}`,
 						state: { videoId: props.videoId },
 					}}
-					className="btn btn-primary position-absolute"
+					className="btn btn-info position-absolute"
 				>
 					DETALHES DO VÍDEO
 				</Link>

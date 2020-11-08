@@ -5,7 +5,7 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 import '../assets/styles/searchbar.css';
 
-const SearchBar = ({ onFormSubmit }) => {
+const SearchBar = ({ onFormSubmit, onTop }) => {
 	const [term, setTerm] = useState('');
 
 	useEffect(() => {
@@ -14,6 +14,12 @@ const SearchBar = ({ onFormSubmit }) => {
 		} else {
 			enableSearchButton();
 		}
+
+		if (onTop) {
+			document.querySelector('#search-bar input').removeAttribute('onfocus');
+			document.querySelector('#search-bar').classList.add('slide-top');
+		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [term]);
 
 	const disableSearchButton = () => {

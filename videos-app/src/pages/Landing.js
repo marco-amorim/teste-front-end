@@ -8,13 +8,16 @@ import useVideos from '../hooks/useVideos';
 import '../assets/styles/landing.css';
 import Pagination from '../components/Pagination';
 
-const Landing = () => {
+const Landing = (props) => {
 	const [search, nextPageToken, prevPageToken, videos] = useVideos('');
 	const [searchMade, setSearchMade] = useState(false);
 	const [searchTerm, setSearchTerm] = useState('');
 
 	useEffect(() => {
-		renderSearchResult();
+		if (props.location.term) {
+			makeSearch(props.location.term);
+		}
+		// renderSearchResult();
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [searchTerm]);
 
@@ -34,7 +37,7 @@ const Landing = () => {
 		if (videos.length > 0) {
 			return (
 				<>
-					<VideoResults videos={videos} />
+					<VideoResults videos={videos} searchTerm={searchTerm} />
 					<Pagination
 						nextPageToken={nextPageToken}
 						prevPageToken={prevPageToken}
@@ -52,7 +55,10 @@ const Landing = () => {
 
 	return (
 		<div className="container">
-			<SearchBar onFormSubmit={makeSearch} />
+			<SearchBar
+				onTop={props.location.term ? true : false}
+				onFormSubmit={makeSearch}
+			/>
 			{renderSearchResult()}
 		</div>
 	);

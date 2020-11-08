@@ -3,7 +3,7 @@ import React from 'react';
 import '../assets/styles/videoresults.css';
 import VideoCard from './VideoCard';
 
-const VideoResults = ({ videos }) => {
+const VideoResults = ({ videos, searchTerm }) => {
 	const renderVideoResults = videos.map((video, index) => {
 		return (
 			<li key={index}>
@@ -13,6 +13,7 @@ const VideoResults = ({ videos }) => {
 					description={video.snippet.description}
 					thumbnail={video.snippet.thumbnails.medium.url}
 					videoId={video.id.videoId}
+					searchTerm={searchTerm}
 				/>
 			</li>
 		);

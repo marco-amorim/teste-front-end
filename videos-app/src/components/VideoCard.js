@@ -23,6 +23,7 @@ const VideoCard = (props) => {
 				<Link
 					to={{
 						pathname: `/video/${props.videoId ? props.videoId : 'status/404'}`,
+						term: props.searchTerm,
 					}}
 					className="btn btn-info position-absolute"
 				>

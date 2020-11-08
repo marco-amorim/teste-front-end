@@ -50,9 +50,12 @@ class VideoPlayer extends Component {
 					/>
 					<div className="card-body">
 						<div className="title-likes">
-							<h5 className="card-title">
-								{this.state.video.snippet.channelTitle}
-							</h5>
+							<h5
+								className="card-title"
+								dangerouslySetInnerHTML={{
+									__html: this.state.video.snippet.channelTitle,
+								}}
+							/>
 							<div className="likes-container">
 								<FontAwesomeIcon icon={faThumbsUp} color="grey" />
 								{this.state.video.statistics.likeCount}
@@ -60,7 +63,12 @@ class VideoPlayer extends Component {
 								{this.state.video.statistics.dislikeCount}
 							</div>
 						</div>
-						<p className="card-text">{this.state.video.snippet.description}</p>
+						<p
+							className="card-text"
+							dangerouslySetInnerHTML={{
+								__html: this.state.video.snippet.description,
+							}}
+						/>
 						<FontAwesomeIcon icon={faEye} color="grey" />
 						<span className="views">
 							{this.state.video.statistics.viewCount}

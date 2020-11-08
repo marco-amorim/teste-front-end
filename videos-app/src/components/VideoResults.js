@@ -8,7 +8,6 @@ const VideoResults = ({ videos }) => {
 		return (
 			<li key={index}>
 				<VideoCard
-					key={video.id.videoId}
 					title={video.snippet.title}
 					channel={video.snippet.channelTitle}
 					description={video.snippet.description}

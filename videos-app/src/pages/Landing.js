@@ -17,7 +17,6 @@ const Landing = (props) => {
 		if (props.location.term) {
 			makeSearch(props.location.term);
 		}
-		// renderSearchResult();
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [searchTerm]);
 

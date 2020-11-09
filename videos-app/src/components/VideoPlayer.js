@@ -24,7 +24,6 @@ class VideoPlayer extends Component {
 	};
 
 	componentDidMount() {
-		console.log('oi');
 		this.fetchVideo();
 	}
 
@@ -36,7 +35,6 @@ class VideoPlayer extends Component {
 			},
 		});
 		this.setState({ video: response.data.items[0] });
-		console.log(this.state.video);
 	};
 
 	render() {
